@@ -5,7 +5,8 @@ import { CommonModule } from '@angular/common';
 import { MatTableModule, MatTableDataSource } from '@angular/material/table';
 import { MatInputModule } from '@angular/material/input';
 import { MatFormFieldModule } from '@angular/material/form-field';
-
+import { MatIconModule } from '@angular/material/icon';
+import {MatButtonModule} from '@angular/material/button';
 export interface Post {
     id: number;
     username: string;
@@ -18,11 +19,11 @@ export interface Post {
     templateUrl: './posts.component.html',
     styleUrls: ['./posts.component.css'],
     standalone: true,
-    imports: [RouterModule,CommonModule,MatTableModule,MatInputModule,MatFormFieldModule ]
+    imports: [RouterModule,CommonModule,MatTableModule,MatInputModule,MatFormFieldModule,MatIconModule,MatButtonModule]
 })
 export class PostsComponent implements OnInit {
     posts: Post[] = [];
-    displayedColumns: string[] = ['id', 'username', 'title', 'description'];
+    displayedColumns: string[] = ['id', 'username', 'title', 'description', 'delete'];
     dataSource = new MatTableDataSource<Post>(this.posts);
 
     constructor(private http: HttpClient) {}
@@ -46,4 +47,8 @@ export class PostsComponent implements OnInit {
       const filterValue = (event.target as HTMLInputElement).value;
       this.dataSource.filter = filterValue.trim().toLowerCase();
   }
+  deletePost(id: number): void {
+    this.posts = this.posts.filter(post => post.id !== id);
+    this.dataSource.data = this.posts; // Update data source to refresh table
+}
 }
