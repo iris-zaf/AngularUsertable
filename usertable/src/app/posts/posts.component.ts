@@ -9,19 +9,22 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatButtonModule } from '@angular/material/button';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { forkJoin } from 'rxjs';
+import { MatPaginatorModule } from '@angular/material/paginator'; // Import paginator
+import { ViewChild } from '@angular/core'; // Import ViewChild to access paginator
+import { MatPaginator } from '@angular/material/paginator'; // Import MatPaginator
 
 export interface Post {
     id: number;
     userId: number;
     title: string;
     body: string;
-    username?: string; // Optional because it will be added later
+    username?: string; // Optional isws argotera
 }
 
 export interface User {
     id: number;
     name: string;
-    username: string; // Username property added
+    username: string;
     email: string;
     phone: string;
 }
@@ -31,7 +34,7 @@ export interface User {
     templateUrl: './posts.component.html',
     styleUrls: ['./posts.component.css'],
     standalone: true,
-    imports: [RouterModule, CommonModule, MatTableModule, MatInputModule, MatFormFieldModule, MatIconModule, MatButtonModule, MatProgressSpinnerModule]
+    imports: [RouterModule, CommonModule, MatTableModule, MatInputModule, MatFormFieldModule,MatPaginatorModule, MatIconModule, MatButtonModule, MatProgressSpinnerModule]
 })
 export class PostsComponent implements OnInit {
     posts: Post[] = [];
@@ -39,6 +42,7 @@ export class PostsComponent implements OnInit {
     loading: boolean = true;
     displayedColumns: string[] = ['id', 'username', 'title', 'body', 'delete'];
     dataSource = new MatTableDataSource<Post>(this.posts);
+@ViewChild(MatPaginator) paginator!: MatPaginator;
 
     constructor(private http: HttpClient) {}
 
@@ -78,4 +82,7 @@ export class PostsComponent implements OnInit {
         this.posts = this.posts.filter(post => post.id !== id);
         this.dataSource.data = this.posts;
     }
+    ngAfterViewInit() {
+      this.dataSource.paginator = this.paginator; // Link paginator to data source
+  }
 }
