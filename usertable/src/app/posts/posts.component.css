@@ -14,3 +14,9 @@ button[mat-icon-button] {
   align-items: center;
   z-index: 1000;
 }
+.container h2{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  margin-bottom:20px;
+}
