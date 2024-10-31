@@ -1,22 +1,46 @@
-button[mat-icon-button] {
-  border-radius: 50%;
-  padding: 8px;
-}
-.loading-overlay {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100vw;
-  height: 100vh;
-  background-color: rgba(0, 0, 0, 0.8);
+.table-container {
   display: flex;
-  justify-content: center;
-  align-items: center;
-  z-index: 1000;
+  width: 100%;
 }
-.container h2{
-  display:flex;
-  justify-content:space-between;
-  align-items:center;
-  margin-bottom:20px;
+
+.fixed-header {
+  background: white; /* Background color for fixed header */
+  z-index: 1; /* Make sure it stays on top of other content */
+}
+
+.fixed-header table {
+  border-collapse: collapse;
+}
+
+.scrollable-table {
+  overflow-x: auto; /* Enable horizontal scrolling */
+  display: block; /* Prevent table from stretching full width */
+}
+
+.scrollable-table table {
+  border-collapse: collapse;
+  min-width: 800px; /* Ensure a minimum width for scrollable table */
+}
+
+th,
+td {
+  padding: 16px;
+  text-align: left; /* Left align text */
+  border: 1px solid #ddd;
+  height: 160px;
+}
+
+@media (max-width: 600px) {
+  .scrollable-table {
+    overflow-x: auto;
+    vertical-align: middle;
+  }
+
+  /* Hide any columns you want to exclude */
+  th[mat-header-cell="delete"],
+  th[mat-header-cell="edit"],
+  td[mat-cell*="delete"],
+  td[mat-cell*="edit"] {
+    display: none; /* Hide delete and edit columns on mobile */
+  }
 }
