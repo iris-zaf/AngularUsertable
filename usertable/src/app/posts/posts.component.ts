@@ -53,7 +53,7 @@ export class PostsComponent implements OnInit {
 
     ngOnInit(): void {
         this.loading = true;
-        this.loadUsersAndPosts(); // Load users and posts together
+        this.loadUsersAndPosts();
     }
 
     loadUsersAndPosts(): void {
