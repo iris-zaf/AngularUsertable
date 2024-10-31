@@ -1,6 +1,6 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { EditPostDialogComponent } from './edit-post-dialog.component';
+import { EditPostDialogComponent } from './editpopup.component';
 
 describe('EditPostDialogComponent', () => {
   let component: EditPostDialogComponent;

@@ -13,7 +13,7 @@ import { MatPaginatorModule } from '@angular/material/paginator';
 import { ViewChild } from '@angular/core';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatDialog } from '@angular/material/dialog'; // gia to edit modal
-import { EditPostDialogComponent } from '../components/edit-post-dialog/edit-post-dialog.component';
+import { EditPopUpComponent } from '../components/editpopup/editpopup.component';
 
 
 export interface Post {
@@ -87,9 +87,9 @@ export class PostsComponent implements OnInit {
       }
 
 
-      const dialogRef = this.dialog.open(EditPostDialogComponent, {
+      const dialogRef = this.dialog.open(EditPopUpComponent, {
           width: '400px',
-          data: { ...postToEdit }
+          data: { ...postToEdit, users: this.users }
       });
 
 
