@@ -6,6 +6,9 @@ import { FormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 import { MatInputModule } from '@angular/material/input';
 import { MatSelectModule } from '@angular/material/select';
+import { MatIconModule } from '@angular/material/icon';
+import {MatButtonModule} from '@angular/material/button';
+
 @Component({
   selector: 'app-edit-post-dialog',
   template: `
@@ -29,8 +32,12 @@ import { MatSelectModule } from '@angular/material/select';
       </mat-form-field>
     </mat-dialog-content>
     <mat-dialog-actions align="end">
-      <button mat-button [mat-dialog-close]="false">Cancel</button>
-      <button mat-button color="primary" (click)="onSave()">Save</button>
+    <button mat-button color="warn" [mat-dialog-close]="false">
+        <mat-icon>cancel</mat-icon> Cancel
+      </button>
+      <button mat-button color="primary" (click)="onSave()">
+        <mat-icon>save</mat-icon> Save
+      </button>
     </mat-dialog-actions>
   `,
   standalone: true,
@@ -39,7 +46,9 @@ import { MatSelectModule } from '@angular/material/select';
     FormsModule,
     MatDialogModule,
     MatInputModule,
-    MatSelectModule
+    MatSelectModule,
+    MatIconModule,
+    MatButtonModule
   ],
 })
 export class EditPopUpComponent {
