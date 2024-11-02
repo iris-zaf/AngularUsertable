@@ -4,8 +4,8 @@
 }
 
 .fixed-header {
-  background: white; /* Background color for fixed header */
-  z-index: 1; /* Make sure it stays on top of other content */
+  background: white;
+  z-index: 1;
 }
 
 .fixed-header table {
@@ -13,31 +13,29 @@
 }
 
 .scrollable-table {
-  overflow-x: auto; /* Enable horizontal scrolling */
-  display: block; /* Prevent table from stretching full width */
+  overflow-x: auto;
+  display: block;
 }
 
 .scrollable-table table {
   border-collapse: collapse;
-  min-width: 800px; /* Ensure a minimum width for scrollable table */
+  min-width: 800px;
 }
 
 th,
 td {
   padding: 16px;
-  text-align: left; /* Left align text */
+  text-align: left;
   border: 1px solid #ddd;
   height: 160px;
 }
 .filter-add {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  margin-bottom: 10px;
+  margin-bottom: 16px;
 }
 
 .filter-input {
-  flex-grow: 1;
+  width: 100%;
+  max-width: 50%;
 }
 @media (max-width: 600px) {
   .scrollable-table {
@@ -45,11 +43,11 @@ td {
     vertical-align: middle;
   }
 
-  /* Hide any columns you want to exclude */
+  /*column i want hidden */
   th[mat-header-cell="delete"],
   th[mat-header-cell="edit"],
   td[mat-cell*="delete"],
   td[mat-cell*="edit"] {
-    display: none; /* Hide delete and edit columns on mobile */
+    display: none;
   }
 }

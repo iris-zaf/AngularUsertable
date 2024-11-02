@@ -9,7 +9,7 @@ import { MatSelectModule } from '@angular/material/select';
 @Component({
   selector: 'app-edit-post-dialog',
   template: `
-    <h2 mat-dialog-title>Edit Post</h2>
+    <h2 mat-dialog-title>Επεξεργασία Post</h2>
     <mat-dialog-content>
       <mat-form-field appearance="outline" class="full-width">
         <mat-label>Title</mat-label>

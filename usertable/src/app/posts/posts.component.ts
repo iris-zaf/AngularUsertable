@@ -14,15 +14,14 @@ import { ViewChild } from '@angular/core';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatDialog } from '@angular/material/dialog'; // gia to edit modal
 import { EditPopUpComponent } from '../components/editpopup/editpopup.component';
-import { AddpopupComponent } from '../components/addpopup/addpopup.component';
-
+import { FlexLayoutModule } from '@angular/flex-layout';
 
 export interface Post {
     id: number;
     userId: number;
     title: string;
     body: string;
-    username?: string; 
+    username?: string;
 }
 
 export interface User {
@@ -38,7 +37,7 @@ export interface User {
     templateUrl: './posts.component.html',
     styleUrls: ['./posts.component.css'],
     standalone: true,
-    imports: [RouterModule, CommonModule, MatTableModule, MatInputModule, MatFormFieldModule,MatPaginatorModule, MatIconModule, MatButtonModule, MatProgressSpinnerModule]
+    imports: [RouterModule, CommonModule, MatTableModule, MatInputModule, MatFormFieldModule,MatPaginatorModule, MatIconModule, MatButtonModule, MatProgressSpinnerModule,FlexLayoutModule]
 })
 export class PostsComponent implements OnInit {
 
@@ -108,7 +107,7 @@ export class PostsComponent implements OnInit {
   }
   //add post
   async openAddPostDialog(): Promise<void> {
-    const dialogRef = this.dialog.open(AddpopupComponent, {
+    const dialogRef = this.dialog.open(EditPopUpComponent, {
       width: '400px',
       data: {
         title: '',

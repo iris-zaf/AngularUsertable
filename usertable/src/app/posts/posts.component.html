@@ -1,16 +1,17 @@
 
 <!-- Filter -->
- <div class="filter-add">
-<mat-form-field appearance="fill" class="filter-input">
-  <mat-label>Filter</mat-label>
+ <div class="filter-add" fxLayout="row" fxLayoutAlign="space-between center" fxLayoutGap="16px">
+<mat-form-field appearance="fill" class="filter-input" fxFlex="30" fxFlex.xs="100">
+  <mat-icon matPrefix>search</mat-icon>
+  <mat-label>Αναζήτηση</mat-label>
   <input
     matInput
     (keyup)="applyFilter($event)"
-    placeholder="Search posts"
+    placeholder="Ψάξε ένα post..."
     #input
   />
 </mat-form-field>
-<button mat-raised-button color="primary" (click)="openAddPostDialog()">Add Post</button>
+<button mat-raised-button color="primary" (click)="openAddPostDialog()"><mat-icon>add</mat-icon>Προσθήκη Post</button>
 
 </div>
 <div class="table-container">
