@@ -14,6 +14,7 @@ import { ViewChild } from '@angular/core';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatDialog } from '@angular/material/dialog'; // gia to edit modal
 import { EditPopUpComponent } from '../components/editpopup/editpopup.component';
+import { AddpopupComponent } from '../components/addpopup/addpopup.component';
 
 
 export interface Post {
@@ -21,7 +22,7 @@ export interface Post {
     userId: number;
     title: string;
     body: string;
-    username?: string; // Optional isws argotera
+    username?: string; 
 }
 
 export interface User {
@@ -77,6 +78,7 @@ export class PostsComponent implements OnInit {
             }
         });
     }
+    //edit post
     async editPost(postId: number): Promise<void> {
 
       const postToEdit = this.posts.find(post => post.id === postId);
@@ -104,13 +106,37 @@ export class PostsComponent implements OnInit {
           }
       }
   }
+  //add post
+  async openAddPostDialog(): Promise<void> {
+    const dialogRef = this.dialog.open(AddpopupComponent, {
+      width: '400px',
+      data: {
+        title: '',
+        body: '',
+        userId: null,
+        users: this.users
+      }
+    });
 
+    const result = await firstValueFrom(dialogRef.afterClosed());
 
+    if (result) {
+      const newPost: Post = {
+        ...result,
+        id: this.posts.length + 1,  // new  for new post
+        username: this.users.find(user => user.id === result.userId)?.username || 'Unknown User'
+      };
+      this.posts = [newPost, ...this.posts];
+      this.dataSource.data = this.posts;
+    }
+  }
+
+//filter
     applyFilter(event: Event): void {
         const filterValue = (event.target as HTMLInputElement).value;
         this.dataSource.filter = filterValue.trim().toLowerCase();
     }
-
+//delete
     deletePost(id: number): void {
         this.posts = this.posts.filter(post => post.id !== id);
         this.dataSource.data = this.posts;

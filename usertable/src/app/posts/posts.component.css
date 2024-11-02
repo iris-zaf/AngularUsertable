@@ -29,7 +29,16 @@ td {
   border: 1px solid #ddd;
   height: 160px;
 }
+.filter-add {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 10px;
+}
 
+.filter-input {
+  flex-grow: 1;
+}
 @media (max-width: 600px) {
   .scrollable-table {
     overflow-x: auto;

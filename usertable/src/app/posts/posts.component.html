@@ -1,6 +1,7 @@
 
 <!-- Filter -->
-<mat-form-field appearance="fill">
+ <div class="filter-add">
+<mat-form-field appearance="fill" class="filter-input">
   <mat-label>Filter</mat-label>
   <input
     matInput
@@ -9,7 +10,9 @@
     #input
   />
 </mat-form-field>
+<button mat-raised-button color="primary" (click)="openAddPostDialog()">Add Post</button>
 
+</div>
 <div class="table-container">
   <!-- Fixed Header for the first two columns -->
   <div class="fixed-header">
