@@ -7,6 +7,16 @@ body {
 body {
   margin: 0;
   font-family: Roboto, "Helvetica Neue", sans-serif;
+  background-color: #ffffff;
+  color: #000000;
 }
 
+/* Dark Theme */
+.dark-theme {
+  background-color: #121212;
+  color: #ffffff;
+}
 
+.dark-theme .mat-icon-button {
+  color: #ffffff;
+}

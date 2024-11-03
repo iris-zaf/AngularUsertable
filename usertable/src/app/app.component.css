@@ -1,9 +1,13 @@
-/* fix for desktop to be full size */
 @media (min-width: 1400px) {
 .containerone{
   max-width:100%;
   padding:0;
 }
+}
+mat-toolbar {
+  display: flex;
+  justify-content: space-between; 
+  align-items: center;
 }
 
 
