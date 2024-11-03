@@ -9,6 +9,7 @@ body {
   font-family: Roboto, "Helvetica Neue", sans-serif;
   background-color: #ffffff;
   color: #000000;
+  transition: background-color 0.3s ease, color 0.3s ease;
 }
 
 /* Dark Theme */
@@ -19,4 +20,19 @@ body {
 
 .dark-theme .mat-icon-button {
   color: #ffffff;
+}
+.dark-theme .mat-mdc-table {
+  background-color: #ffffff;
+  color: #000000;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+.dark-theme .mat-mdc-header-cell
+{
+  color: #000000;
+  transition: color 0.3s ease;
+}
+.dark-theme .mat-mdc-cell
+{
+  color: #000000;
+  transition: color 0.3s ease; 
 }

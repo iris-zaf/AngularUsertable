@@ -17,15 +17,15 @@
 <div class="table-container">
   <!-- Fixed Header for the first two columns -->
   <div class="fixed-header">
-    <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+    <table mat-table [dataSource]="dataSource" class="mat-elevation-z8" [ngClass]="{ 'dark-theme': isDarkMode }">
       <ng-container matColumnDef="id">
         <th mat-header-cell *matHeaderCellDef>ID</th>
-        <td mat-cell *matCellDef="let post">{{ post.id }}</td>
+        <td mat-cell *matCellDef="let post" [ngClass]="{ 'dark-theme': isDarkMode }">{{ post.id }}</td>
       </ng-container>
 
       <ng-container matColumnDef="username">
         <th mat-header-cell *matHeaderCellDef>Username</th>
-        <td mat-cell *matCellDef="let post">{{ post.username }}</td>
+        <td mat-cell *matCellDef="let post" [ngClass]="{ 'dark-theme': isDarkMode }">{{ post.username }}</td>
       </ng-container>
 
       <tr mat-header-row *matHeaderRowDef="['id', 'username']"></tr>
@@ -35,20 +35,20 @@
 
   <!-- Scrollable Table for the rest of the columns -->
   <div class="scrollable-table">
-    <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+    <table mat-table [dataSource]="dataSource" class="mat-elevation-z8" [ngClass]="{ 'dark-theme': isDarkMode }">
       <ng-container matColumnDef="title">
-        <th mat-header-cell *matHeaderCellDef>Title</th>
-        <td mat-cell *matCellDef="let post">{{ post.title }}</td>
+        <th mat-header-cell *matHeaderCellDef [ngClass]="{ 'dark-theme': isDarkMode }">Title</th>
+        <td mat-cell *matCellDef="let post" [ngClass]="{ 'dark-theme': isDarkMode }">{{ post.title }}</td>
       </ng-container>
 
       <ng-container matColumnDef="body">
-        <th mat-header-cell *matHeaderCellDef>Body</th>
-        <td mat-cell *matCellDef="let post">{{ post.body }}</td>
+        <th mat-header-cell *matHeaderCellDef [ngClass]="{ 'dark-theme': isDarkMode }">Body</th>
+        <td mat-cell *matCellDef="let post" [ngClass]="{ 'dark-theme': isDarkMode }">{{ post.body }}</td>
       </ng-container>
 
       <ng-container matColumnDef="delete">
-        <th mat-header-cell *matHeaderCellDef>Delete</th>
-        <td mat-cell *matCellDef="let post">
+        <th mat-header-cell *matHeaderCellDef [ngClass]="{ 'dark-theme': isDarkMode }">Delete</th>
+        <td mat-cell *matCellDef="let post" [ngClass]="{ 'dark-theme': isDarkMode }">
           <button mat-icon-button color="warn" (click)="deletePost(post.id)">
             <mat-icon>delete</mat-icon>
           </button>
@@ -56,8 +56,8 @@
       </ng-container>
 
       <ng-container matColumnDef="edit">
-        <th mat-header-cell *matHeaderCellDef>Edit</th>
-        <td mat-cell *matCellDef="let post">
+        <th mat-header-cell *matHeaderCellDef [ngClass]="{ 'dark-theme': isDarkMode }">Edit</th>
+        <td mat-cell *matCellDef="let post" [ngClass]="{ 'dark-theme': isDarkMode }">
           <button mat-icon-button color="primary" (click)="editPost(post.id)">
             <mat-icon>edit</mat-icon>
           </button>

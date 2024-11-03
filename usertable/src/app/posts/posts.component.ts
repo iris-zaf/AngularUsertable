@@ -15,6 +15,7 @@ import { MatPaginator } from '@angular/material/paginator';
 import { MatDialog } from '@angular/material/dialog'; // gia to edit modal
 import { EditPopUpComponent } from '../components/editpopup/editpopup.component';
 import { FlexLayoutModule } from '@angular/flex-layout';
+import { ThemeService } from '../theme.service';
 
 export interface Post {
     id: number;
@@ -49,8 +50,10 @@ export class PostsComponent implements OnInit {
     dataSource = new MatTableDataSource<Post>(this.posts);
     @ViewChild(MatPaginator) paginator!: MatPaginator;
 
-    constructor(private http: HttpClient, private dialog: MatDialog) {}
-
+    constructor(private http: HttpClient, private dialog: MatDialog,private themeService: ThemeService) {}
+    get isDarkMode(): boolean {
+      return this.themeService.isDarkMode();
+  }
     ngOnInit(): void {
         this.loading = true;
         this.loadUsersAndPosts();
